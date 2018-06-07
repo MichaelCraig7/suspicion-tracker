@@ -12,8 +12,17 @@ var susPersonControllerRouter = require('./routes/susPersonController');
 
 var app = express();
 
+mongoose.connect('mongodb://localhost/Project2')
+  .then(() => {
+    console.log('*** Mongo Connected ***')
+  })
+  .catch((err) => {
+    console.log('ERROR', err)
+  })
+
 const mongoose = require('mongoose');
-mongoose.connect(process.env.MONGODB_URI); 
+mongoose.connect('mongodb://localhost/Project2')
+mongoose.connect(process.env.MONGODB_URI);
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
@@ -31,12 +40,12 @@ app.use('/commentController', commentControllerRouter);
 app.use('/susPersonController', susPersonControllerRouter);
 
 // catch 404 and forward to error handler
-app.use(function(req, res, next) {
+app.use(function (req, res, next) {
   next(createError(404));
 });
 
 // error handler
-app.use(function(err, req, res, next) {
+app.use(function (err, req, res, next) {
   // set locals, only providing error in development
   res.locals.message = err.message;
   res.locals.error = req.app.get('env') === 'development' ? err : {};
