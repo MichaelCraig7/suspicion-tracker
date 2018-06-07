@@ -1,6 +1,7 @@
-<h1>Who's Been Acting Suspicious?</h1>
+<h1>Your Suspect Entries</h1>
 
-{{#each}}
-    <a href="/sus/{{id}}">
+{{#each UserSuspectsMain}}
+    <a href="/susPerson/{{_id}}">
+        <p>{{name}}</p>
     </a>
 {{/each}}
