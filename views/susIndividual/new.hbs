@@ -3,19 +3,19 @@
 <form action='/susPerson' method="POST">
     <div>
         <label>Suspect Name</label>
-        <input type='text' placeholder="Name"></input>
+        <input type='text' name='name' placeholder="Name"></input>
     </div>
     <div>
         <label>Offenses</label>
-        <textarea type='text' placeholder="Details of suspicious activity"></textarea>
+        <textarea type='text' name='offenses' placeholder="Details of suspicious activity"></textarea>
     </div>
     <div>
         <label>Suspicion Level</label>
-        <input type='number' placeholder="0"></input>
+        <input type='number' name='suspicionLevel' placeholder="0"></input>
     </div>
     <div>
         <label>Image</label>
-        <input type='url'></input>
+        <input type='url' name='img'></input>
     </div>
 
     <button type='submit'>SUBMIT</button>

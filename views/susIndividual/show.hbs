@@ -1,5 +1,8 @@
 <h1>{{suspiciousIndividual.name}}</h1>
+<p>{{suspiciousIndividual.offenses}}</p>
+<p>{{suspiciousIndividual.img}}</p>
+<p>{{suspiciousIndividual.suspicionLevel}}</p>
 
-<form action="/susPerson/{{homeworkAssignment._id}}?_method=DELETE" method="POST">
+<form action="/susPerson/{{suspiciousIndividual._id}}?_method=DELETE" method="POST">
   <button type="submit">Delete Suspect</button>
 </form>

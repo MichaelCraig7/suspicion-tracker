@@ -29,7 +29,7 @@ router.post('/', (req, res) => {
 router.get('/:id', (req, res) => {
   Suspect.findById(req.params.id)
     .then((suspiciousIndividual) => {
-      res.render('susPerson/show'), {
+      res.render('susIndividual/show'), {
         suspiciousIndividual
       }
     })
