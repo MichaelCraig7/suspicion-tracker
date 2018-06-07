@@ -7,7 +7,8 @@ const susIndividualSchema = new Schema ({
     img: String,
     offenses: String,
     timeCreated: Date,
-    suspicionLevel: Number
+    suspicionLevel: Number,
+    comments: [ commentSchema ]
 })
 
 module.exports = susIndividualSchema
