@@ -3,7 +3,15 @@ const router = express.Router();
 const User = require('../models/User')
 
 router.get('/', (req, res, next) => {
-  res.send('yuh');
+  User.find({})
+    .then((user) => {
+      res.render('user/index', {
+        user
+      })
+    })
+    .catch((err) => {
+      res.send(err)
+    })
 });
 
 router.get('/new', (req, res) => {
@@ -11,23 +19,63 @@ router.get('/new', (req, res) => {
 })
 
 router.post('/', (req, res) => {
-
+  const createUser = req.body
+  User.create(createUser)
+    .then(() => {
+      res.redirect('/user')
+    })
+    .catch((err) => {
+      res.send(err)
+    })
 })
 
 router.get('/:id', (req, res) => {
-
+  const userId = req.params.userId
+  User.findById(userId)
+    .then((user) => {
+      res.render('user/show', {
+        user
+      })
+    })
+    .catch((err) => {
+      res.send(err)
+    })
 })
 
 router.get('/:id/edit', (req, res) => {
-
+  const userId = req.params.userId
+  User.findById(userId)
+    .then((user) => {
+      res.render('user/edit', {
+        user
+      })
+    })
+    .catch((err) => {
+      res.send(err)
+    })
 })
 
 router.put('/:id', (req, res) => {
-
+  const userId = req.params.userId
+  const updatedUser = req.body
+  User.findByIdAndUpdate(userId, updatedUser, { new: true })
+    .then((user) => {
+      res.render(`/user/${userId}`)
+      user
+    })
+    .catch((err) => {
+      res.send(err)
+    })
 })
 
 router.delete('/:id', (req, res) => {
+  const userId = req.params.userId
+  User.findByIdAndRemove(userId)
+    .then(() => {
+      console.log('Successfully Delete ')
 
+      res.redirect('/user')
+    })
 })
 
 module.exports = router;
