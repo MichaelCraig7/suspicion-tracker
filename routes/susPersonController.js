@@ -18,15 +18,22 @@ router.get('/', function (req, res, next) {
 });
 
 router.get('/new', (req, res) => {
-  res.render('susIndividual/new')
+  res.render('susIndividual/new', {
+    userId: req.params.userId
+  })
 })
 
 router.post('/', (req, res) => {
-  const userId = req.params.userId
-  const newSuspect = new newSuspect(req.body)
-  Suspect.findById(req.params.userId)
-    .then(() => {
-      res.redirect('/susIndividual')
+  const userId = req.params.id
+  const newSuspect = req.body
+  User.findById(userId)
+  .then((userid) => {
+    userid.susPeopleList.push(newSuspect)
+    return userid.save()
+  })
+  .then(() => {
+    console.log("userId")
+      res.redirect(`/user/${userId}/suspects`)
     })
     .catch((err) => {
       res.send(err)

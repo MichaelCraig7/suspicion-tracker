@@ -1,6 +1,6 @@
 <h1>Who Needs To Be Watched?</h1>
 
-<form action='/susPerson' method="POST">
+<form action='/user/{{userId}}/suspects' method="POST">
     <div>
         <label>Suspect Name</label>
         <input type='text' name='name' placeholder="Name"></input>
@@ -20,5 +20,3 @@
 
     <button type='submit'>SUBMIT</button>
 </form>
-
-{{susPersonId}}
