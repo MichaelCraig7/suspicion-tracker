@@ -5,13 +5,14 @@ var User = require('../models/User')
 
 router.get('/', function (req, res, next) {
   const userId = req.params.userId
+  const suspectId = req.params.suspectId
   User.findById(userId)
     .then((user) => {
       const suspects = user.susPeopleList
-      console.log(suspects)
       res.render('susIndividual/index', {
         userName: `${user.name}`,
         userId,
+        suspectId,
         suspects,
         susIndividual: user.susIndividual
       })
@@ -30,12 +31,15 @@ router.get('/new', (req, res) => {
 router.get('/:suspectId', (req, res) => {
   const userId = req.params.userId
   const suspectId = req.params.suspectId
+  console.log('second', suspectId)
   User.findById(userId)
     .then((user) => {
-      const sus = user.susIndividual.id(suspectId)
+      const suspects = user.susPeopleList
+      const susPerson = user.susPeopleList.id(suspectId)
       res.render('susIndividual/show'), {
         userId,
-        sus
+        susPerson,
+        suspects
       }
     })
     .catch((err) => {
@@ -45,7 +49,6 @@ router.get('/:suspectId', (req, res) => {
 
 router.post('/', (req, res) => {
   const userId = req.params.userId
-  console.log(userId)
   const newSuspect = req.body
   User.findById(userId)
     .then((user) => {
@@ -53,7 +56,6 @@ router.post('/', (req, res) => {
       return user.save()
     })
     .then(() => {
-      console.log("userId")
       res.redirect(`/user/${userId}/suspects`)
     })
     .catch((err) => {
@@ -61,15 +63,15 @@ router.post('/', (req, res) => {
     })
 })
 
-router.get('/:id/edit', (req, res) => {
+router.get('/:suspectId/edit', (req, res) => {
 
 })
 
-router.put('/:id', (req, res) => {
+router.put('/:suspectId', (req, res) => {
 
 })
 
-router.delete('/:id', (req, res) => {
+router.delete('/suspectId', (req, res) => {
 
 })
 
