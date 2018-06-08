@@ -1,7 +1,11 @@
-<h1>show</h1>
-<h4>{{user.name}}</h4>
+
+<h1>{{user.name}}</h1>
 
 
-<form action="/user/{{userId}}?_method=DELETE" method="POST">
-  <button type="submit">Delete</button>
+
+<form action="/user/{{user.id}}?_method=DELETE" method="POST">
+    <button type="submit">Delete</button>
+</form>
+<form action="/user/{{user.id}}?_method=UPDATE" method="GET">
+    <button type='submit'>Update</button>
 </form>

@@ -30,7 +30,7 @@ router.post('/', (req, res) => {
 })
 
 router.get('/:id', (req, res) => {
-  const userId = req.params.userId
+  const userId = req.params.id
   User.findById(userId)
     .then((user) => {
       res.render('user/show', {
@@ -43,7 +43,7 @@ router.get('/:id', (req, res) => {
 })
 
 router.get('/:id/edit', (req, res) => {
-  const userId = req.params.userId
+  const userId = req.params.id
   User.findById(userId)
     .then((user) => {
       res.render('user/edit', {
@@ -56,7 +56,7 @@ router.get('/:id/edit', (req, res) => {
 })
 
 router.put('/:id', (req, res) => {
-  const userId = req.params.userId
+  const userId = req.params.id
   const updatedUser = req.body
   User.findByIdAndUpdate(userId, updatedUser, { new: true })
     .then((user) => {
@@ -69,11 +69,10 @@ router.put('/:id', (req, res) => {
 })
 
 router.delete('/:id', (req, res) => {
-  const userId = req.params.userId
+  const userId = req.params.id
   User.findByIdAndRemove(userId)
     .then(() => {
-      console.log('Successfully Delete ')
-
+      console.log('Successfully Deleted')
       res.redirect('/user')
     })
 })
