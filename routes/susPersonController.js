@@ -9,7 +9,10 @@ router.get('/', function (req, res, next) {
     .then((user) => {
       const suspects = user.suspects
       res.render('susIndividual/index', {
-        suspects
+        userName: `${user.name}`,
+        userId,
+        suspects,
+        susIndividual: user.susIndividual
       })
     })
     .catch((err) => {
@@ -23,29 +26,33 @@ router.get('/new', (req, res) => {
   })
 })
 
-router.post('/', (req, res) => {
-  const userId = req.params.id
-  const newSuspect = req.body
+router.get('/:suspectId', (req, res) => {
+  const userId = req.params.userId
+  const suspectId = req.params.suspectId
   User.findById(userId)
-  .then((userid) => {
-    userid.susPeopleList.push(newSuspect)
-    return userid.save()
-  })
-  .then(() => {
-    console.log("userId")
-      res.redirect(`/user/${userId}/suspects`)
+    .then((user) => {
+      const sus = user.susIndividual.id(suspectId)
+      res.render('susIndividual/show'), {
+        userId,
+        sus
+      }
     })
     .catch((err) => {
       res.send(err)
     })
 })
 
-router.get('/:id', (req, res) => {
-  Suspect.findById(req.params.id)
-    .then((suspiciousIndividual) => {
-      res.render('susIndividual/show'), {
-        suspiciousIndividual
-      }
+router.post('/', (req, res) => {
+  const userId = req.params.id
+  const newSuspect = req.body
+  User.findById(userId)
+    .then((user) => {
+      user.susPeopleList.push(newSuspect)
+      return user.save()
+    })
+    .then(() => {
+      console.log("userId")
+      res.redirect(`/user/${userId}/suspects`)
     })
     .catch((err) => {
       res.send(err)

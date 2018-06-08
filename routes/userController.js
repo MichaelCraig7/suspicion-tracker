@@ -22,7 +22,7 @@ router.post('/', (req, res) => {
   const createUser = req.body
   User.create(createUser)
     .then(() => {
-      res.redirect('/user')
+      res.redirect('/')
     })
     .catch((err) => {
       res.send(err)

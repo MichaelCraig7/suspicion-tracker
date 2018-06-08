@@ -1,7 +1,11 @@
-<h1>Your Suspect Entries</h1>
+<h1>{{userName}}'s Watch List</h1>
 
 {{#each suspects}}
-    <a href="/susPerson/{{_id}}">
-        <p>{{name}}</p>
+    <p>{{user.name}}</p>
+    <a href="/user/{{userId}}">
     </a>
 {{/each}}
+
+<form action="/user/{{userId}}/suspects/new" method="get">
+        <button type='submit'>Create New Suspect</button>
+</form>
