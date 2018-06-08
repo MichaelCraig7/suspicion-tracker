@@ -1,11 +1,26 @@
 <h1>{{userName}}'s Watch List</h1>
 
 {{#each suspects}}
-    <p>{{user.name}}</p>
-    <a href="/user/{{userId}}">
-    </a>
+<h2>{{name}}</h2>
+<img src="{{img}}" alt="image here" />
+<ul>
+    <li>
+        <p>Offenses: {{offenses}}</p>
+    </li>
+    <li>
+        <p>Suspicion Level: {{suspicionLevel}}</p>
+    </li>
+</ul>
+<h3>Comments</h3>
+<ul>
+    <li>{{comments}}</li>
+</ul>
+<a href="/user/{{userId}}"></a>
+<form action="/user/{{userId}}/suspects/{{suspectId}}" method="get">
+    <button type='submit'>Update</button>
+</form>
 {{/each}}
 
 <form action="/user/{{userId}}/suspects/new" method="get">
-        <button type='submit'>Create New Suspect</button>
+    <button type='submit'>Create New Suspect</button>
 </form>

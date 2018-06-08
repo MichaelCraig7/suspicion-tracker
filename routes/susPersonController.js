@@ -7,7 +7,8 @@ router.get('/', function (req, res, next) {
   const userId = req.params.userId
   User.findById(userId)
     .then((user) => {
-      const suspects = user.suspects
+      const suspects = user.susPeopleList
+      console.log(suspects)
       res.render('susIndividual/index', {
         userName: `${user.name}`,
         userId,
@@ -43,7 +44,8 @@ router.get('/:suspectId', (req, res) => {
 })
 
 router.post('/', (req, res) => {
-  const userId = req.params.id
+  const userId = req.params.userId
+  console.log(userId)
   const newSuspect = req.body
   User.findById(userId)
     .then((user) => {
