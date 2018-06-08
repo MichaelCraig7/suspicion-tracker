@@ -1,14 +1,14 @@
 var express = require('express');
-var router = express.Router();
+var router = express.Router({ mergeParams: true });
 var Suspect = require('../models/SusIndividual')
 var User = require('../models/User')
 
 router.get('/', function (req, res, next) {
-  const UserId = req.params.userID
-  User.find()
-    .then((usersSuspectsMain) => {
+  const userId = req.params.userId
+  User.findById(userId)
+    .then((user) => {
       const suspects = user.suspects
-      res.render('suspects/index', {
+      res.render('susIndividual/index', {
         suspects
       })
     })
@@ -19,16 +19,14 @@ router.get('/', function (req, res, next) {
 
 router.get('/new', (req, res) => {
   res.render('susIndividual/new')
-    .catch((err) => {
-      res.send(err)
-    })
 })
 
 router.post('/', (req, res) => {
+  const userId = req.params.userId
   const newSuspect = new newSuspect(req.body)
-  Suspect.findById(req.params.susPersonId)
+  Suspect.findById(req.params.userId)
     .then(() => {
-      res.redirect('/susPerson')
+      res.redirect('/susIndividual')
     })
     .catch((err) => {
       res.send(err)
