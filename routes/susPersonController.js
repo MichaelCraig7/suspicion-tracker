@@ -31,16 +31,15 @@ router.get('/new', (req, res) => {
 router.get('/:suspectId', (req, res) => {
   const userId = req.params.userId
   const suspectId = req.params.suspectId
-  console.log('second', suspectId)
   User.findById(userId)
     .then((user) => {
       const suspects = user.susPeopleList
       const susPerson = user.susPeopleList.id(suspectId)
-      res.render('susIndividual/show'), {
+      res.render('susIndividual/show', {
         userId,
         susPerson,
         suspects
-      }
+      })
     })
     .catch((err) => {
       res.send(err)
@@ -64,6 +63,7 @@ router.post('/', (req, res) => {
 })
 
 router.get('/:suspectId/edit', (req, res) => {
+  const userId = req.params.userId
 
 })
 
