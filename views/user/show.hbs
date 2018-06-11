@@ -1,8 +1,8 @@
 
-<h1>{{user.name}}</h1>
+<h1>Username: {{user.name}}</h1> 
+<h1>Password: {{user.password}}</h1> 
 
-<form action="/user/{{userId}}?_method=UPDATE" method="POST">
+
+<form action="/user/{{userId}}/edit" method="GET">
     <button type='submit'>Update</button>
 </form>
-
-{{!-- // MAYBE DELETE THIS --}}

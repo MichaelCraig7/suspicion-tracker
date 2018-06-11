@@ -36,6 +36,7 @@ router.get('/:id', (req, res) => {
   const userId = req.params.id
   User.findById(userId)
     .then((user) => {
+      console.log('SHOW FUNCRTION')
       res.render('user/show', {
         user,
         userId
@@ -62,10 +63,10 @@ router.get('/:id/edit', (req, res) => {
 router.put('/:id', (req, res) => {
   const userId = req.params.id
   const updatedUser = req.body
+  console.log('DING DONG')
   User.findByIdAndUpdate(userId, updatedUser, { new: true })
     .then((user) => {
-      res.render(`/user/${userId}`)
-      user
+      res.redirect(`/user/${userId}`)
     })
     .catch((err) => {
       res.send(err)
