@@ -6,8 +6,8 @@ router.get('/', (req, res, next) => {
   const userId = req.params.id
   User.find()
     .then((user) => {
-      console.log(user)
-      res.render('user/index', {
+      console.log('index')
+      res.render('user/new', {
         user,
         userId
       })
@@ -23,9 +23,10 @@ router.get('/new', (req, res) => {
 
 router.post('/', (req, res) => {
   const createUser = req.body
+  console.log('here it is')
   User.create(createUser)
     .then(() => {
-      res.redirect('/user')
+      res.redirect(`/user/${userId}`)
     })
     .catch((err) => {
       res.send(err)
