@@ -21,6 +21,9 @@
 <form action="/user/{{../userId}}/suspects/{{this.id}}/show" method="get">
     <button type='submit'>Show</button>
 </form>
+<form action="/user/{{../userId}}/suspects/{{this.id}}/comments/new" method="get">
+    <button type='submit'>Comments</button>
+</form>
 {{/each}}
 <form action="/user/{{userId}}/suspects/new" method="get">
     <button type='submit'>Create New Suspect</button>

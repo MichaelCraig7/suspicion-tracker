@@ -38,7 +38,7 @@ app.use(cookieParser());
 app.use('/', indexRouter);
 app.use('/user', userControllerRouter);
 app.use('/user/:userId/suspects', susPersonControllerRouter);
-app.use('/user/:userId/suspects/:suspectId/comment', commentControllerRouter);
+app.use('/user/:userId/suspects/:suspectId/comments', commentControllerRouter);
 
 // catch 404 and forward to error handler
 app.use(function (req, res, next) {
