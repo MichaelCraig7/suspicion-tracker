@@ -8,20 +8,29 @@
     <title>AYYYY</title>
 </head>
 
-<body>
-    <h1>{{title}}</h1>
-    <p>Welcome to {{title}}</p>
+<body class="grid">
     <div class="wrapper">
-        <div class="topRow">
-        </div>
-        <div class="middleColumn">
-        </div>
-        <div class="bottomRow">
+    <div class="test"></div>
+    <div class="topRight">
+        <div class="loginHyper">
+            <form action="/user" method="GET">
+                <a href="/user" class="loginHref">Login</a>
+            </form>
         </div>
     </div>
-    <form action="/user" method="GET">
-        <button type="submit">User Page</button>
-    </form>
+    <div class="topMiddle">
+        <h4>{{title}}</h4>
+    </div>
+    <div class="topLeft"></div>
+    <div class="middleLeft"></div>
+    <div class="middle "></div>
+    <div class="middleRight"></div>
+    <div class="bottomLeft"></div>
+    <div class="bottomMiddle"></div>
+    <div class="bottomRight"></div>
+</div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-beta/js/materialize.min.js"></script>
+    <script src="/javascripts/main.js"></script>
 </body>
 
 
