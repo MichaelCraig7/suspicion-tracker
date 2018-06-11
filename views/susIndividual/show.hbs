@@ -13,9 +13,12 @@
         </li>
     </ul>
     <h3>Comments</h3>
+    {{#each newComments}}
+    <h4>{{createdBy}}: </h4>
     <ul>
-        <li>{{susPerson.comments}}</li>
+        <li>{{content}}</li>
     </ul>
+    {{/each}}
 </form>
 
 <form action="/user/{{userId}}/suspects/{{suspectId}}?_method=DELETE" method="POST">

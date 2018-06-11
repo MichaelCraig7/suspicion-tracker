@@ -1,5 +1,8 @@
 <h1>{{userName}}'s Watch List</h1>
 
+<form action="/user/{{userId}}/suspects/new" method="get">
+    <button type='submit'>Create New Suspect</button>
+</form>
 {{#each suspects}}
 <h2>{{name}}</h2>
 <img src="{{img}}" alt="image here" />
@@ -11,10 +14,6 @@
         <p>Suspicion Level: {{suspicionLevel}}</p>
     </li>
 </ul>
-<h3>Comments</h3>
-<ul>
-    <li>{{comments}}</li>
-</ul>
 <form action="/user/{{../userId}}/suspects/{{this.id}}/edit" method="get">
     <button type='submit'>Update</button>
 </form>
@@ -25,6 +24,3 @@
     <button type='submit'>Comments</button>
 </form>
 {{/each}}
-<form action="/user/{{userId}}/suspects/new" method="get">
-    <button type='submit'>Create New Suspect</button>
-</form>

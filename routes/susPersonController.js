@@ -50,10 +50,12 @@ router.get('/:suspectId/show', (req, res) => {
   User.findById(userId)
     .then((user) => {
       const susPerson = user.susPeopleList.id(suspectId)
+      const newComments = susPerson.comments
       res.render('susIndividual/show', {
         susPerson,
         userId,
         suspectId,
+        newComments
       })
     })
     .catch((err) => {
@@ -86,7 +88,7 @@ router.put('/:suspectId', (req, res) => {
   User.findById(userId)
     .then((user) => {
       const susPerson = user.susPeopleList.id(suspectId)
-      
+
       susPerson.name = updatedSuspect.name
       susPerson.offenses = updatedSuspect.offenses
       susPerson.suspicionLevel = updatedSuspect.suspicionLevel
