@@ -8,9 +8,7 @@ router.get('/', function (req, res, next) {
   const suspectId = req.params.suspectId
   User.findById(userId)
     .then((user) => {
-      
       const suspects = user.susPeopleList
-      console.log(suspects)
       res.render('susIndividual/index', {
         userName: `${user.name}`,
         userId,
@@ -71,7 +69,8 @@ router.get('/:suspectId/edit', (req, res) => {
       const susPerson = user.susPeopleList.id(suspectId)
       res.render('susIndividual/edit', {
         susPerson,
-        userId
+        userId,
+        suspectId
       })
     })
     .catch((err) => {
@@ -83,13 +82,20 @@ router.put('/:suspectId', (req, res) => {
   const userId = req.params.userId
   const suspectId = req.params.suspectId
   const updatedSuspect = req.body
-  User.findById(userId, updatedSuspect, { new: true })
+  console.log(req.body)
+  User.findById(userId)
     .then((user) => {
-      user.susPeopleList.id(suspectId)
+      const susPerson = user.susPeopleList.id(suspectId)
+      
+      susPerson.name = updatedSuspect.name
+      susPerson.offenses = updatedSuspect.offenses
+      susPerson.suspicionLevel = updatedSuspect.suspicionLevel
+      susPerson.img = updatedSuspect.img
+
       return user.save()
     })
-    .then(() => {
-      res.render(`/user/${userId}/suspects`)
+    .then((newSuspect) => {
+      res.redirect(`/user/${userId}/suspects`)
     })
     .catch((err) => {
       res.send(err)
@@ -99,6 +105,7 @@ router.put('/:suspectId', (req, res) => {
 router.delete('/:suspectId', (req, res) => {
   const userId = req.params.userId
   const suspectId = req.params.suspectId
+  console.log('#($($(#()')
   User.findById(userId)
     .then((user) => {
       user.susPeopleList.id(suspectId).remove()

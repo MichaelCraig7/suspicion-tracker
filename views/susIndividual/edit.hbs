@@ -1,21 +1,21 @@
 <h1>Update {{susPerson.name}}'s Information</h1>
 
-<form action='/user/{{userId}}/suspects' method="POST">
+<form action='/user/{{userId}}/suspects/{{suspectId}}?_method=PUT' method="POST">
     <div>
         <label>Suspect Name</label>
-        <input type='text' name='name' placeholder="{{susPerson.name}}"></input>
+        <input type='text' name='name' value="{{susPerson.name}}"></input>
     </div>
     <div>
         <label>Offenses</label>
-        <textarea type='text' name='offenses' placeholder="{{susPerson.offenses}}"></textarea>
+        <textarea type='text' name='offenses' value="{{susPerson.offenses}}"></textarea>
     </div>
     <div>
         <label>Suspicion Level</label>
-        <input type='number' name='suspicionLevel' placeholder="{{susPerson.suspicionLevel}}"</input>
+        <input type='number' name='suspicionLevel' value="{{susPerson.suspicionLevel}}" </input>
     </div>
     <div>
         <label>Image</label>
-        <input type='url' name='{{susPerson.img}}'></input>
+        <input type='url' name='img' value='{{susPerson.img}}'></input>
     </div>
 
     <button type='submit'>Update</button>
