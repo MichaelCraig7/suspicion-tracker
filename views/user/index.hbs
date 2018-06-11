@@ -1,5 +1,4 @@
 <h1>Login</h1>
-<form action="/user" method="POST">
     <div>
         <label>Username</label>
         <input type='text' name="name"></input>
@@ -8,5 +7,6 @@
         <label>Password</label>
         <input type='text' name="password"></input>
     </div>
+<form action="/user/{{userId}}/suspects" method="GET">
     <button type='submit'>Submit</button>
 </form>
