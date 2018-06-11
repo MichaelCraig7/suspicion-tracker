@@ -15,11 +15,13 @@
 <ul>
     <li>{{comments}}</li>
 </ul>
-<form action="/user/{{userId}}/suspects/{{suspectId}}" method="get">
+<form action="/user/{{../userId}}/suspects/{{this.id}}/edit" method="get">
     <button type='submit'>Update</button>
 </form>
+<form action="/user/{{../userId}}/suspects/{{this.id}}/show" method="get">
+    <button type='submit'>Show</button>
+</form>
 {{/each}}
-
 <form action="/user/{{userId}}/suspects/new" method="get">
     <button type='submit'>Create New Suspect</button>
 </form>

@@ -3,10 +3,13 @@ const router = express.Router();
 const User = require('../models/User')
 
 router.get('/', (req, res, next) => {
-  User.find({})
+  const userId = req.params.id
+  User.find()
     .then((user) => {
+      console.log(user)
       res.render('user/index', {
-        user
+        user,
+        userId
       })
     })
     .catch((err) => {
@@ -22,7 +25,7 @@ router.post('/', (req, res) => {
   const createUser = req.body
   User.create(createUser)
     .then(() => {
-      res.redirect('/')
+      res.redirect('/user')
     })
     .catch((err) => {
       res.send(err)
@@ -34,7 +37,8 @@ router.get('/:id', (req, res) => {
   User.findById(userId)
     .then((user) => {
       res.render('user/show', {
-        user
+        user,
+        userId
       })
     })
     .catch((err) => {
@@ -65,15 +69,6 @@ router.put('/:id', (req, res) => {
     })
     .catch((err) => {
       res.send(err)
-    })
-})
-
-router.delete('/:id', (req, res) => {
-  const userId = req.params.id
-  User.findByIdAndRemove(userId)
-    .then(() => {
-      console.log('Successfully Deleted')
-      res.redirect('/user')
     })
 })
 

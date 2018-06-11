@@ -1,8 +1,5 @@
-<h1>Login</h1>
-
-{{#each Users}}
-{{/each}}
-<form action='/user' method="POST">
+<h1>Login {{name}}</h1>
+<form action="/user/{{user._id}}" method="get">
     <div>
         <label>Username</label>
         <input type='text' placeholder="Username"></input>

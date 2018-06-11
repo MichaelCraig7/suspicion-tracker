@@ -1,9 +1,8 @@
 
 <h1>{{user.name}}</h1>
 
-<form action="/user/{{user.id}}?_method=DELETE" method="POST">
-    <button type="submit">Delete</button>
-</form>
-<form action="/user/{{user.id}}?_method=UPDATE" method="GET">
+<form action="/user/{{userId}}?_method=UPDATE" method="POST">
     <button type='submit'>Update</button>
 </form>
+
+{{!-- // MAYBE DELETE THIS --}}
