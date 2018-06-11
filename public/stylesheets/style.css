@@ -55,9 +55,18 @@
   background-color: #000000;
 }  */
 .wrapper {
-grid-template-areas: 
-"a a a a b b b b"
-"a a a a b b b b"
-"c c c c d d d d"
-"c c c c d d d d";
+  display: grid;
+  grid-template-columns: repeat(8, 1fr);
+  grid-template-rows: repeat(15, 1fr);
+  width: 100vw;
+  height: 100vh;
+}
+
+.topMiddle {
+  grid-area: 1 / 4 / span 1 / span 2;
+  text-align: center;
+}
+
+.loginHref {
+  grid-area: 1 / 8 / span 1 / span 1;
 }
