@@ -30,12 +30,11 @@ router.post('/', (req, res) => {
   User.findById(userId)
     .then((user) => {
       const susPerson = user.susPeopleList.id(suspectId)
-      susPerson.susPeopleList.push(suspectId)
-
+      susPerson.comments.push(newSuspect)
       return user.save()
     })
     .then(() => {
-      res.redirect(`/user/${userId}/suspects`)
+      res.redirect(`/user/${userId}/suspects/${suspectId}/show`)
     })
     .catch((err) => {
       res.send(err)
