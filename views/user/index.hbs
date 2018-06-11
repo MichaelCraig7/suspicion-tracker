@@ -1,12 +1,13 @@
 <h1>Login</h1>
-    <div>
-        <label>Username</label>
-        <input type='text' name="name"></input>
+<form action="/user/5b1ea647a2e18e88c343db80/suspects" method="POST">
+    <div class="form-input">
+        <label for="name">Username</label>
+        <input type="text" name="name" required/>
     </div>
-    <div>
-        <label>Password</label>
-        <input type='text' name="password"></input>
+
+    <div class="form-input">
+        <label for="password">Password</label>
+        <input type="text" name="password" />
     </div>
-<form action="/user/{{userId}}/suspects" method="GET">
     <button type='submit'>Submit</button>
 </form>
