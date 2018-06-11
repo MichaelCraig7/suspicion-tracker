@@ -1,4 +1,4 @@
-/* body {
+body {
   background-color: #333333;
   padding: 50px;
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
@@ -25,7 +25,7 @@
   background-color: #000000;
   display: flex;
 
-} */
+}
 
 a {
   color: #00B7FF;
