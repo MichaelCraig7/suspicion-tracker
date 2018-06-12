@@ -46,10 +46,10 @@ body {
 .loginHyper {
   justify-self: center;
   z-index: 1;
+  grid-area: 6/7/span 3/ span 3;
 }
 
 .loginHref {
-  grid-area: 1 / 14 / span 1 / span 2;
   color: #4ecca3;
 }
 
@@ -70,6 +70,7 @@ body {
 .signinSubmitBtn {
   grid-area: 8 / 8/ span 1 / span 1;
   justify-self: center;
+  align-self: center;
 }
 
 .susIndexH3 {
