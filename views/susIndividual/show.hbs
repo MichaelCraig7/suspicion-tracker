@@ -1,29 +1,32 @@
-<h1></h1>
-<h1>{{susPerson.name}} has been up to no good</h1>
-
-<form action="/user/{{userId}}/suspects" method="POST">
-    <h2>{{name}}</h2>
-    <img src="{{susPerson.img}}" alt="image here" />
-    <ul>
-        <li>
-            <p>Offenses: {{susPerson.offenses}}</p>
-        </li>
-        <li>
-            <p>Suspicion Level: {{susPerson.suspicionLevel}}</p>
-        </li>
-    </ul>
-    <h3>Comments</h3>
-    {{#each newComments}}
-    <h4>{{createdBy}}: </h4>
-    <ul>
-        <li>{{content}}</li>
-    </ul>
-    {{/each}}
+<div class="susEditTopText">
+    <h3>{{susPerson.name}} is one to be watched</h3>
+</div>
+<form class="susShowInformation" action="/user/{{userId}}/suspects" method="POST">
+    <div class="susShowName">
+        <img class="susIndexImg susShowImg" src="{{susPerson.img}}" alt="image here" />
+        <h4>{{susPerson.name}}</h4>
+        <div class="susShowOffAndLevel">
+            <ul>
+                <li>
+                    <p>Offenses: {{susPerson.offenses}}</p>
+                </li>
+                <li>
+                    <p>Suspicion Level: {{susPerson.suspicionLevel}}</p>
+                </li>
+            </ul>
+        </div>
+    </div>
+    <div class="susShowComments">
+        <h4>Comments</h4>
+        {{#each newComments}}
+        <div class="susShowCommentContent">
+            <ul>
+                <li>{{createdBy}}:  {{content}}</li>
+            </ul>
+        </div>
+        {{/each}}
+    </div>
 </form>
-
-<form action="/user/{{userId}}/suspects/{{suspectId}}?_method=DELETE" method="POST">
-    <button type="submit">Delete Suspect</button>
-</form>
-<form action="/user/{{userId}}/suspects/{{suspectId}}" method="GET">
-    <button type="submit">Back</button>
+<form class="susIndexTopBtn susShowDeleteBtn" action="/user/{{userId}}/suspects/{{suspectId}}?_method=DELETE" method="POST">
+    <button class="btn-small" type="submit">Delete</button>
 </form>

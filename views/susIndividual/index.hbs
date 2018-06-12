@@ -1,26 +1,37 @@
-<h1>{{userName}}'s Watch List</h1>
-
-<form action="/user/{{userId}}/suspects/new" method="get">
-    <button type='submit'>Create New Suspect</button>
-</form>
+<div class="susIndexH3">
+    <h3>Watch List</h3>
+</div>
+<div class="susIndexTopBtn">
+    <form action="/user/{{userId}}/suspects/new" method="get">
+        <button class="btn" type='submit'>New Entry</button>
+    </form>
+</div>
 {{#each suspects}}
-<h2>{{name}}</h2>
-<img src="{{img}}" alt="image here" />
-<ul>
-    <li>
-        <p>Offenses: {{offenses}}</p>
-    </li>
-    <li>
-        <p>Suspicion Level: {{suspicionLevel}}</p>
-    </li>
-</ul>
-<form action="/user/{{../userId}}/suspects/{{this.id}}/edit" method="get">
-    <button type='submit'>Update</button>
-</form>
-<form action="/user/{{../userId}}/suspects/{{this.id}}/show" method="get">
-    <button type='submit'>Show</button>
-</form>
-<form action="/user/{{../userId}}/suspects/{{this.id}}/comments/new" method="get">
-    <button type='submit'>Comments</button>
-</form>
+<div class="susIndexInformation">
+    <div class="susIndexNameAndImg">
+        <img class="susIndexImg" src="{{img}}" alt="image here" />
+        <h4 class="susIndexName">{{name}}</h4>
+    </div>
+    <div class="susIndexOffAndLevel">
+        <ul>
+            <li>
+                <p class="susIndexP1">Offenses: {{offenses}}</p>
+            </li>
+            <li>
+                <p class="susIndexP2">Suspicion Level: {{suspicionLevel}}</p>
+            </li>
+        </ul>
+    </div>
+    <div class="susIndexButtons">
+        <form action="/user/{{../userId}}/suspects/{{this.id}}/edit" method="get">
+            <button class="susIndexBtn1 btn-small" type='submit'>Update</button>
+        </form>
+        <form action="/user/{{../userId}}/suspects/{{this.id}}/show" method="get">
+            <button class="susIndexBtn2 btn-small" type='submit'>Show</button>
+        </form>
+        <form action="/user/{{../userId}}/suspects/{{this.id}}/comments/new" method="get">
+            <button class="susIndexBtn3 btn-small" type='submit'>Comments</button>
+        </form>
+    </div>
+</div>
 {{/each}}
