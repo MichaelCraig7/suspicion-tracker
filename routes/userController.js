@@ -7,7 +7,7 @@ router.get('/', (req, res, next) => {
   User.find()
     .then((user) => {
       console.log('index')
-      res.render('user/index')
+      res.render('user/index', {userId})
     })
     .catch((err) => {
       res.send(err)
