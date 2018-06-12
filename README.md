@@ -1,10 +1,9 @@
 ### Suspicion Tracker
-
-
+---
 Live Site: [Heroku](https://evening-mesa-87101.herokuapp.com/)
-
-
+---
 Suspicions Tracker's purpose is to house accounts of suspicious individuals' actions.  This site allows its users to document those times in which they have seen someone engaging in suspicious activities and relay that information to the rest of the world.
+
 Suspicion Tracker was made through the use of the following technologies:
  
   - HTML 
