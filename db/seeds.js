@@ -2,8 +2,9 @@ const mongoose = require('mongoose')
 const User = require('../models/User')
 const Comment = require('../models/Comment')
 const SusIndividual = require('../models/SusIndividual')
+require('dotenv').config();
 
-mongoose.connect('mongodb://localhost/Project2')
+mongoose.connect(process.env.MONGODB_URI)
     .then(() => {
         console.log('*** Mongo Connected ***')
     })
