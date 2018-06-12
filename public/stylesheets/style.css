@@ -15,7 +15,7 @@ body {
 }
 
 .eyeMain {
-  grid-area: 1 / 7 / span 1 / span 3;
+  grid-area: 1 / 6 / span 1 / span 5;
   color: #4ecca3;
   text-align: center;
   z-index: 1;
@@ -54,7 +54,7 @@ body {
 }
 
 .loginPageHead {
-  color: #4ecca3;
+  color: #eeeeee;
   grid-area: 2 / 6 / span 2 / span 5;
   text-align: center;
 }
