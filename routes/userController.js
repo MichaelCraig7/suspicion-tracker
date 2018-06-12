@@ -3,10 +3,10 @@ const router = express.Router();
 const User = require('../models/User')
 
 router.get('/', (req, res, next) => {
-  const userId = req.params.id
   User.find()
-    .then((user) => {
+    .then((users) => {
       console.log('index')
+      const userId = users[0]._id
       res.render('user/index', {userId})
     })
     .catch((err) => {
