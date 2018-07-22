@@ -9,11 +9,9 @@
     </div>
     {{#each suspects}}
     <div class="susIndexInformation">
-        <div>
-            <div class="susIndexNameAndImg">
-                <img class="susIndexImg" src="{{img}}" alt="image here" />
-                <h4 class="susIndexName">{{name}}</h4>
-            </div>
+        <div class='susInfor'>
+            <img class="susIndexImg" src="{{img}}" alt="image here" />
+            <h4 class="susIndexName">{{name}}</h4>
             <div class="susIndexOffAndLevel">
                 <ul>
                     <li>
@@ -32,7 +30,7 @@
                     <button class="susIndexBtn2 btn-small" type='submit'>Show</button>
                 </form>
                 <form action="/user/{{../userId}}/suspects/{{this.id}}/comments/new" method="get">
-                    <button class="susIndexBtn3 btn-small" type='submit'>Comments</button>
+                    <button class="susIndexBtn3 btn-small" type='submit'>Comment</button>
                 </form>
             </div>
         </div>

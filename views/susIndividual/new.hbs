@@ -1,23 +1,25 @@
-<div class="susEditTopText">
-    <h3>Who Needs To Be Watched?</h3>
-</div>
-<form class="susEditInfo" action='/user/{{userId}}/suspects' method="POST">
-    <div>
-        <label>Suspect Name</label>
-        <input type='text' name='name' placeholder="Name" required></input>
+<div class='newSusPersonWrapper'>
+    <div class="susEditTopText">
+        <h3>Who Needs To Be Watched?</h3>
     </div>
-    <div>
-        <label>Offenses</label>
-        <textarea type='text' name='offenses' placeholder="Details of suspicious activity" required></textarea>
-    </div>
-    <div>
-        <label>Suspicion Level</label>
-        <input type='number' name='suspicionLevel' placeholder="0" required></input>
-    </div>
-    <div>
-        <label>Image</label>
-        <input type='url' name='img'></input>
-    </div>
+    <form class="susEditInfo" action='/user/{{userId}}/suspects' method="POST">
+        <div>
+            <label>Suspect Name</label>
+            <input type='text' name='name' placeholder="Name" required></input>
+        </div>
+        <div>
+            <label>Offenses</label>
+            <textarea type='text' name='offenses' placeholder="Details of suspicious activity" required></textarea>
+        </div>
+        <div>
+            <label>Suspicion Level</label>
+            <input type='number' name='suspicionLevel' placeholder="0" required></input>
+        </div>
+        <div>
+            <label>Image</label>
+            <input type='url' name='img'></input>
+        </div>
 
-    <button class="btn-small" type='submit'>SUBMIT</button>
-</form>
+        <button class="btn-small" type='submit'>SUBMIT</button>
+    </form>
+</div>
