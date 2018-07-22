@@ -1,32 +1,37 @@
-<div class="susEditTopText">
-    <h3>{{susPerson.name}} is one to be watched</h3>
+<div class='showSusPersonWrapper'>
+    <div class="showSusPersonTopText">
+        <h3>Keep an eye on {{susPerson.name}}</h3>
+    </div>
+    <form class="susShowInformation" action="/user/{{userId}}/suspects" method="POST">
+        <div class="susShowName">
+            <img class="susIndexImg susShowImg" src="{{susPerson.img}}" alt="image here" />
+            <h4>{{susPerson.name}}</h4>
+            <div class="susShowOffAndLevel">
+                <ul>
+                    <li>
+                        <p>Offenses: {{susPerson.offenses}}</p>
+                    </li>
+                    <li>
+                        <p>Suspicion Level: {{susPerson.suspicionLevel}}</p>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <div class="susShowComments">
+            <h4>Comments</h4>
+            {{#each newComments}}
+            <div class="susShowCommentContent">
+                <ul>
+                    <li>{{createdBy}}: {{content}}</li>
+                </ul>
+            </div>
+            {{/each}}
+        </div>
+    </form>
+    <form class="susIndexTopBtn susShowDeleteBtn" action="/user/{{userId}}/suspects/{{suspectId}}?_method=DELETE" method="POST">
+        <button class="btn-small" type="submit">Delete</button>
+    </form>
+    <form action="/user/{{userId}}/suspects" class="signinSubmitBtn" method="Get">
+        <button type='submit' class="btn-small ">Back</button>
+    </form>
 </div>
-<form class="susShowInformation" action="/user/{{userId}}/suspects" method="POST">
-    <div class="susShowName">
-        <img class="susIndexImg susShowImg" src="{{susPerson.img}}" alt="image here" />
-        <h4>{{susPerson.name}}</h4>
-        <div class="susShowOffAndLevel">
-            <ul>
-                <li>
-                    <p>Offenses: {{susPerson.offenses}}</p>
-                </li>
-                <li>
-                    <p>Suspicion Level: {{susPerson.suspicionLevel}}</p>
-                </li>
-            </ul>
-        </div>
-    </div>
-    <div class="susShowComments">
-        <h4>Comments</h4>
-        {{#each newComments}}
-        <div class="susShowCommentContent">
-            <ul>
-                <li>{{createdBy}}:  {{content}}</li>
-            </ul>
-        </div>
-        {{/each}}
-    </div>
-</form>
-<form class="susIndexTopBtn susShowDeleteBtn" action="/user/{{userId}}/suspects/{{suspectId}}?_method=DELETE" method="POST">
-    <button class="btn-small" type="submit">Delete</button>
-</form>

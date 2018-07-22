@@ -1,23 +1,27 @@
-<div class="susEditTopText">
-    <h3>Update {{susPerson.name}}'s Information</h3>
+<div class='editPersonWrapper'>
+    <div class="susEditTopText">
+        <h3>Update {{susPerson.name}}'s Information</h3>
+    </div>
+    <form class="susEditInfo" action='/user/{{userId}}/suspects/{{suspectId}}?_method=PUT' method="POST">
+        <div>
+            <label>Suspect Name</label>
+            <input class="susEditName" type='text' name='name' value="{{susPerson.name}}" required></input>
+        </div>
+        <div class="susEditOffenses">
+            <label>Offenses</label>
+            <textarea type='text' name='offenses' value="{{susPerson.offenses}}" required></textarea>
+        </div>
+        <div class="susEditLevel">
+            <label>Suspicion Level</label>
+            <input type='number' name='suspicionLevel' value="{{susPerson.suspicionLevel}}" required></input>
+        </div>
+        <div class="susEditImg">
+            <label>Image</label>
+            <input type='url' name='img' value='{{susPerson.img}}'></input>
+        </div>
+        <button class="btn-small" type='submit'>Update</button>
+    </form>
+    <form action="/user/{{userId}}/suspects" class="signinSubmitBtn" method="Get">
+        <button type='submit' class="btn-small ">Back</button>
+    </form>
 </div>
-<form class="susEditInfo" action='/user/{{userId}}/suspects/{{suspectId}}?_method=PUT' method="POST">
-    <div >
-        <label>Suspect Name</label>
-        <input class="susEditName"type='text' name='name' value="{{susPerson.name}}" required></input>
-    </div>
-    <div class="susEditOffenses">
-        <label>Offenses</label>
-        <textarea type='text' name='offenses' value="{{susPerson.offenses}}" required></textarea>
-    </div>
-    <div class="susEditLevel">
-        <label>Suspicion Level</label>
-        <input type='number' name='suspicionLevel' value="{{susPerson.suspicionLevel}}" required></input>
-    </div>
-    <div class="susEditImg">
-        <label>Image</label>
-        <input type='url' name='img' value='{{susPerson.img}}'></input>
-    </div>
-
-    <button class="btn-small"type='submit'>Update</button>
-</form>

@@ -8,73 +8,120 @@ body {
 
 .wrapper {
   display: grid;
-  grid-template-columns: repeat(15, 1fr);
-  grid-template-rows: repeat(15, 1fr);
-  width: 100vw;
-  height: 100vh;
+  grid-template: 7.5vh 92.5vh / 2.5vw 17.5vw 60vw 17.5vw 2.5vw;
 }
 
 .eyeMain {
-  grid-area: 1 / 6 / span 1 / span 5;
   color: #4ecca3;
   text-align: center;
   z-index: 1;
+  grid-area: 1 / 3 / span 1 / span 1;
 }
 
-.top {
-  grid-area: 1 / 1 / span 1 / span 16;
+.eyeMain div h4 {
+  font-size: 3em;
+}
+
+.imagesLeft img, .imagesRight img {
+  height: 7.5vh;
+  width: 17.5vw;
+}
+
+.colorLeft {
+  grid-area: 1 / 2 / span 2 / span 1;
   background-color: #232931;
 }
 
-.mid {
-  grid-area: 2 / 3 / span 13 / span 11;
+.colorRight {
+  grid-area: 1 / 4 / span 2 / span 1;
   background-color: #232931;
 }
 
-.btm {
-  grid-area: 15 / 1 / span 1 / span 16;
-  background-color: #232931;
+.imagesLeft {
+  grid-area: 2 / 2 / span 1 / span 1;
 }
 
-.mainText {
-  grid-area: 1 / 1 / span 1 / span 16;
-  text-align: center;
-  color: #eeeeee;
+.imagesRight {
   background-color: #232931;
+  grid-area: 2 / 4 / span 1 / span 1;
+}
+
+.loginHyper img {
+  grid-area: 1 / 1 / span 1 / span 1;
 }
 
 .loginHyper {
+  grid-area: 2 / 3 / span 1 / span 1;
+  display: grid;
+  grid-template: repeat(3, 1fr) / 50vw;
   justify-self: center;
   z-index: 1;
-  grid-area: 6/7/span 3/ span 3;
 }
 
-.loginHref {
+.titleText h5 {
+  color: white;
+  text-align: center;
+  font-size: 2em;
+}
+
+.titleText {
+  align-self: end;
+}
+
+.mainText {
+  text-align: center;
+  color: #eeeeee;
+}
+
+.titleButtons {
+  padding-bottom: 10px;
+  text-align: center;
+  align-self: center;
   color: #4ecca3;
 }
 
-.loginPageHead {
-  color: #eeeeee;
-  grid-area: 2 / 6 / span 2 / span 5;
-  text-align: center;
+.loginWrapper {
+  grid-area: 2 / 3 / span 1 / span 1;
+  display: grid;
+  grid-template: repeat(8, 1fr) / 50vw;
+  justify-self: center;
+  z-index: 1;
 }
 
 .usernameSignin {
-  grid-area: 6/ 6/ span 5/ span 5;
+  grid-area: 3 / 1 / span 1 / span 1;
 }
 
 .passwordSignin {
-  grid-area: 7/ 6/ span 5/ span 5;
+  grid-area: 4 / 1 / span 1 / span 1;
 }
 
 .signinSubmitBtn {
-  grid-area: 8 / 8/ span 1 / span 1;
+  grid-area: 5 / 1 / span 1 / span 1;
   justify-self: center;
   align-self: center;
 }
 
+.susWrapper {
+  grid-area: 2 / 3 / span 1 / span 1;
+  display: grid;
+  grid-template: 7.5vh 7.5vh 85vh / 50vw;
+  justify-self: center;
+  z-index: 1;
+}
+
+.susIndexTopBtn {
+  grid-area: 2 / 1 / span 1 / span 1;
+  text-align: center;
+  align-self: center;
+}
+
+.susIndexInformation {
+  grid-area: 3 / 1 / span 1 / span 1;
+  display: flex;
+}
+
 .susIndexH3 {
-  grid-area: 2/6/span 2/span 5;
   text-align: center;
   color: #eeeeee;
 }
@@ -84,24 +131,11 @@ body {
   z-index: 1;
 }
 
-.susIndexInformation {  
-  grid-area: 6/6/span 4/span 3;
-}
-
-.susIndexTopBtn {
-  grid-area: 4/7/span 1/span 3;
-  justify-self: center;
-}
-
 .susIndexImg {
-  height: 130px;
-  width: 130px;
+  height: 10vh;
+  width: 10vh;
   border-radius: 100%;
   border: 2px dotted #eeeeee;
-}
-
-.susIndexInformation .susIndexOffAndLevel {
-  grid-area: 7/8/span 4/span 3;
 }
 
 .susIndexP1, .susIndexP2 {
@@ -116,14 +150,7 @@ body {
   text-align: center;
 }
 
-.susEditTopText {
-  grid-area: 2/6/span 2/span 5;
-  text-align: center;
-  color: #eeeeee;
-}
-
 .susEditInfo {
-  grid-area: 5/ 6/ span 5/ span 5; 
   color: #eeeeee;
 }
 
@@ -133,9 +160,22 @@ body {
 }
 
 .susShowInformation {
-  grid-area: 5/6/span 4/span 5;
   color: #eeeeee;
   text-align: center;
+}
+
+.showSusPersonWrapper, .newCommentTopText, .editPersonWrapper {
+  grid-area: 2 / 3 / span 1 / span 1;
+  display: grid;
+  grid-template: repeat(8, 1fr) / 50vw;
+  justify-self: center;
+  z-index: 1;
+}
+
+.showSusPersonTopText, .newCommentTopText, .susEditTopText {
+  grid-area: 1 / 1 / span 1 / span 1;
+  text-align: center;
+  color: #eeeeee;
 }
 
 .susShowImg {

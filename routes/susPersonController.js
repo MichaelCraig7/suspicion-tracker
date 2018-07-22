@@ -107,7 +107,6 @@ router.put('/:suspectId', (req, res) => {
 router.delete('/:suspectId', (req, res) => {
   const userId = req.params.userId
   const suspectId = req.params.suspectId
-  console.log('#($($(#()')
   User.findById(userId)
     .then((user) => {
       user.susPeopleList.id(suspectId).remove()

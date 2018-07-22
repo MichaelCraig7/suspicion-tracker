@@ -1,15 +1,15 @@
-<div class="loginPageHead">
-    <h1>Login</h1>
-</div>
-<div class="form-input usernameSignin">
-    <label for="name">Username</label>
-    <input type="text" name="name" />
-</div>
 
-<div class="form-input passwordSignin">
-    <label for="password">Password</label>
-    <input type="text" name="password" />
+<div class='loginWrapper'>
+    <div class="form-input usernameSignin">
+        <label for="name">Username</label>
+        <input type="text" name="name" />
+    </div>
+
+    <div class="form-input passwordSignin">
+        <label for="password">Password</label>
+        <input type="text" name="password" />
+    </div>
+    <form action="/user/{{userId}}/suspects" class="signinSubmitBtn" method="Get">
+        <button type='submit' class="btn-small ">Submit</button>
+    </form>
 </div>
-<form action="/user/{{userId}}/suspects" class="signinSubmitBtn" method="Get">
-    <button type='submit' class="btn-small ">Submit</button>
-</form>

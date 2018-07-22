@@ -1,16 +1,21 @@
-<div class="susEditTopText">
-    <h3>New Comment</h3>
+<div class='newCommentWrapper'>
+    <div class="newCommentTopText">
+        <h3>New Comment</h3>
+    </div>
+    {{!-- {{#each newSuspect}} --}}
+    <form class="susEditInfo" action='/user/{{userId}}/suspects/{{suspectId}}/comments' method="POST">
+        <div>
+            <label>Created By: </label>
+            <input type='text' name='createdBy' required></input>
+        </div>
+        <div>
+            <label>Comment: </label>
+            <input type='text' name='content' required></input>
+        </div>
+        <button class="btn-small" type='submit'>Submit</button>
+    </form>
+    <form action="/user/{{userId}}/suspects" class="signinSubmitBtn" method="Get">
+        <button type='submit' class="btn-small ">Back</button>
+    </form>
 </div>
-{{!-- {{#each newSuspect}} --}}
-<form class="susEditInfo" action='/user/{{userId}}/suspects/{{suspectId}}/comments' method="POST">
-    <div>
-        <label>Created By: </label>
-        <input type='text' name='createdBy' required></input>
-    </div>
-    <div>
-        <label>Comment: </label>
-        <input type='text' name='content' required></input>
-    </div>
-    <button class="btn-small" type='submit'>Submit</button>
-</form>
 {{!-- {{/each}} --}}
