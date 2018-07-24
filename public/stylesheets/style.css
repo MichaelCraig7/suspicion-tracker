@@ -105,7 +105,7 @@ body {
 .susWrapper {
   grid-area: 2 / 3 / span 1 / span 1;
   display: grid;
-  grid-template: 10vh 10vh 80vh / 50vw;
+  grid-template: 10vh 10vh / 50vw;
   justify-self: center;
   z-index: 1;
 }
@@ -117,16 +117,7 @@ body {
 }
 
 .susIndexInformation {
-  grid-area: 3 / 1 / span 1 / span 1;
-  /* display: grid;
-  grid-template: 15vh / 10vw 35vw 5vw; */
-}
-
-.susInfor {
-  grid-area: 1 / 1 / span 1 / span 1;
   display: flex;
-  display: grid;
-  grid-template: 7.5vh 7.5vh / 10vw 35vw 5vw;
 }
 
 .susIndexH3 {

@@ -9,31 +9,29 @@
     </div>
     {{#each suspects}}
     <div class="susIndexInformation">
-        <div class='susInfor'>
-            <img class="susIndexImg" src="{{img}}" alt="image here" />
-            <h4 class="susIndexName">{{name}}</h4>
-            <div class="susIndexOffAndLevel">
-                <ul>
-                    <li>
-                        <p class="susIndexP1">Offenses: {{offenses}}</p>
-                    </li>
-                    <li>
-                        <p class="susIndexP2">Suspicion Level: {{suspicionLevel}}</p>
-                    </li>
-                </ul>
-            </div>
-            <div class="susIndexButtons">
-                <form action="/user/{{../userId}}/suspects/{{this.id}}/edit" method="get">
-                    <button class="susIndexBtn1 btn-small" type='submit'>Update</button>
-                </form>
-                <form action="/user/{{../userId}}/suspects/{{this.id}}/show" method="get">
-                    <button class="susIndexBtn2 btn-small" type='submit'>Show</button>
-                </form>
-                <form action="/user/{{../userId}}/suspects/{{this.id}}/comments/new" method="get">
-                    <button class="susIndexBtn3 btn-small" type='submit'>Comment</button>
-                </form>
-            </div>
+        <img class="susIndexImg" src="{{img}}" alt="image here" />
+        <h4 class="susIndexName">{{name}}</h4>
+        <div class="susIndexOffAndLevel">
+            <ul>
+                <li>
+                    <p class="susIndexP1">Offenses: {{offenses}}</p>
+                </li>
+                <li>
+                    <p class="susIndexP2">Suspicion Level: {{suspicionLevel}}</p>
+                </li>
+            </ul>
+        </div>
+        <div class="susIndexButtons">
+            <form action="/user/{{../userId}}/suspects/{{this.id}}/edit" method="get">
+                <button class="susIndexBtn1 btn-small" type='submit'>Update</button>
+            </form>
+            <form action="/user/{{../userId}}/suspects/{{this.id}}/show" method="get">
+                <button class="susIndexBtn2 btn-small" type='submit'>Show</button>
+            </form>
+            <form action="/user/{{../userId}}/suspects/{{this.id}}/comments/new" method="get">
+                <button class="susIndexBtn3 btn-small" type='submit'>Comment</button>
+            </form>
         </div>
     </div>
+    {{/each}}
 </div>
-{{/each}}
